@@ -1,0 +1,26 @@
+{
+  "name": "udemy-typescript",
+  "version": "1.0.0",
+  "description": "Learn the basics of typescript",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Apiiyu/Belajar-Typescript.git"
+  },
+  "keywords": [
+    "Typescript"
+  ],
+  "author": "Rafi Khoirulloh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Apiiyu/Belajar-Typescript/issues"
+  },
+  "homepage": "https://github.com/Apiiyu/Belajar-Typescript#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
