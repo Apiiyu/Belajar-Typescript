@@ -1,5 +1,5 @@
-node_modules
+/01 - Basics/node_modules
 
 # logs
-pnpm-lock.yaml
-pnpm-debug.log*
+/01 - Basics/pnpm-lock.yaml
+/01 - Basics/pnpm-debug.log*
