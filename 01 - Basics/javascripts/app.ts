@@ -1,27 +1,16 @@
-/**
- * @description This typescript function will add two numbers
- * @param {Number} firstNumber 
- * @param {Number} secondNumber 
- * @returns {Number} The sum of the two numbers
-*/
-const addNumber = (firstNumber: number, secondNumber: number) => {
-  return firstNumber + secondNumber;
+type IUsers = { // --> First, we define the type of the data we want to store
+  name: string;
+  age: number;
+  country: string;
+  isAlive: boolean;  
 }
 
-/**
- * @description This vanilla javascript function will add two numbers
- * @param firstNumber 
- * @param secondNumber 
- * @returns {Number} The sum of the two numbers
- */
-const addNumberVanillaJavascript = (firstNumber, secondNumber) => {
-  if (typeof firstNumber !== 'number' || typeof secondNumber !== 'number') {
-    throw new Error('Incorrect input!');
-  }
-  return firstNumber + secondNumber;
+const exampleDataUsers:IUsers = { // --> Then, we create a variable of that type and assign it some data
+  name: "Rafi",
+  age: 18,
+  country: "Indonesia",
+  isAlive: true
 }
 
-//--> The key difference is Javascript uses dynamic types (resolved at runtime) and Typescript uses static types (set during development)
-
-console.log(addNumber(1, 2));
-console.log(addNumberVanillaJavascript(1, '2'))
+console.log(exampleDataUsers.age)
+console.log(exampleDataUsers);
