@@ -1,3 +1,9 @@
+/**
+ * @description Handle function combine value to try about Union Types
+ * @param {Number | String} firstParameter
+ * @param {Number | String} secondParameter
+ * @returns
+ */
 var combineValue = function (firstParameter, secondParameter) {
     if (typeof firstParameter === 'number' && typeof secondParameter === 'number') {
         return firstParameter + secondParameter;
