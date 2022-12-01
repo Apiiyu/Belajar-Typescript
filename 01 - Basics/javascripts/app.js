@@ -1,29 +1,15 @@
-/**
- * @description Handle Add Numbers
- * @param {Number} firstNumber
- * @param {Number} secondNumber
- * @return {Number}
- */
-var addNumber = function (firstNumber, secondNumber) {
-    return firstNumber + secondNumber;
+var userInput;
+var userName;
+var userInputWithAny;
+userInput = 5;
+userInput = 'Rafi';
+userInputWithAny = 'Any';
+// userName = userInput; // --> This will throw an error, because userInput is of type unknown. So we need to check the type of userInput before assigning it to userName.
+userName = userInputWithAny; // --> This will not throw an error, because userInputWithAny is of type any. So we can assign it to userName without any problem.
+if (typeof userInput === 'string') {
+    userName = userInput; // --> This will work, because we are checking the type of userInput before assigning it to userName.
+}
+var generateError = function (message, statusCode) {
+    throw { message: message, statusCode: statusCode };
 };
-/**
- * @description Handle Print Result
- * @param {Number} result
- * @return {void}
- */
-var printResult = function (result) {
-    console.log("Result: ".concat(result));
-};
-var combineValues; // --> We can define function as types too. As example in this case we define function type, which takes two numbers and return number.
-combineValues = addNumber; // --> We can assign function to variable, which is defined as function type.
-// combineValues = printResult; // --> We can't assign function to variable, which is defined as function type, because this function doesn't return number.
-var addAndHandleNumbers = function (firstNumber, secondNumber, callback) {
-    var result = firstNumber + secondNumber;
-    callback(result); // --> We can call callback function and pass the result of add numbers.
-};
-printResult(addNumber(5, 12));
-console.log(combineValues(10, 10));
-addAndHandleNumbers(10, 20, function (result) {
-    console.log(result);
-});
+generateError('An error occurred!', 500);

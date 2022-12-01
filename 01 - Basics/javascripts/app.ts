@@ -11,3 +11,9 @@ userName = userInputWithAny; // --> This will not throw an error, because userIn
 if (typeof userInput === 'string') {
   userName = userInput; // --> This will work, because we are checking the type of userInput before assigning it to userName.
 }
+
+const generateError = (message: string, statusCode: number): never => { // --> In typescript we also can use never as a return type. It means that this function will never return anything. It sounds like a contradiction, but it is not. It is used when we want to throw an error and stop the execution of the function. Never types is not same as void types. Void types means that the function will return nothing. But never types means that the function will never return anything. So it is not same as void types.
+  throw { message, statusCode };
+};
+
+generateError('An error occurred!', 500);
