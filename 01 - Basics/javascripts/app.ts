@@ -1,18 +1,20 @@
-type ICombinable = number | string; // --> This is type alias. Type alias is a way to give a name to a type. It can be used to give a name to a union type, tuple type, or any other type that you need to reuse multiple times.
+/**
+ * @description Handle Add Numbers
+ * @param {Number} firstNumber 
+ * @param {Number} secondNumber 
+ * @return {Number}
+ */
+const addNumber = (firstNumber: number, secondNumber: number) => {
+  return firstNumber + secondNumber;
+};
 
 /**
- * @description Handle function combine value to try about Union Types
- * @param {Number | String} firstParameter 
- * @param {Number | String} secondParameter 
- * @returns 
+ * @description Handle Print Result
+ * @param {Number} result
+ * @return {void} 
  */
-const combineValue = (firstParameter: ICombinable, secondParameter: ICombinable) => { // --> This paramters can be number or string, and it usually called Union Types
-  if (typeof firstParameter === 'number' && typeof secondParameter === 'number') {
-    return firstParameter + secondParameter;
-  } else {
-    return firstParameter+'' + secondParameter+'';
-  }
+const printResult = (result: number):void => { // --> We can also define types of result function for more clearly. As example in this case we define void type, because we don't return anything on this function.
+  console.log(`Result: ${result}`);
 }
 
-console.log(combineValue(1, 2));
-console.log(combineValue('Rafi', 'Khoirulloh'));
+printResult(addNumber(5, 12));

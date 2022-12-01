@@ -1,16 +1,18 @@
 /**
- * @description Handle function combine value to try about Union Types
- * @param {Number | String} firstParameter
- * @param {Number | String} secondParameter
- * @returns
+ * @description Handle Add Numbers
+ * @param {Number} firstNumber
+ * @param {Number} secondNumber
+ * @return {Number}
  */
-var combineValue = function (firstParameter, secondParameter) {
-    if (typeof firstParameter === 'number' && typeof secondParameter === 'number') {
-        return firstParameter + secondParameter;
-    }
-    else {
-        return firstParameter + '' + secondParameter + '';
-    }
+var addNumber = function (firstNumber, secondNumber) {
+    return firstNumber + secondNumber;
 };
-console.log(combineValue(1, 2));
-console.log(combineValue('Rafi', 'Khoirulloh'));
+/**
+ * @description Handle Print Result
+ * @param {Number} result
+ * @return {void}
+ */
+var printResult = function (result) {
+    console.log("Result: ".concat(result));
+};
+printResult(addNumber(5, 12));
