@@ -99,5 +99,12 @@
     /* Completeness */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
-  }
+  },
+  "exclude": [ // --> It will except these files from the compilation
+    "/02 - Compiler/typescript/basics.ts",
+    "/02 - Compiler/typescript/coreTypes.ts",
+    "/02 - Compiler/typescript/functions.ts",
+    "/02 - Compiler/typescript/unionAliases.ts",
+  ],
+  // "include": [] // --> It will only include these files for the compilation
 }
