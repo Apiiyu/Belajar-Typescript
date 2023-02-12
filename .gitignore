@@ -1,9 +1,11 @@
 # Modules
 /01 - Basics/node_modules
 /02 - Compiler/node_modules
+/03 - Next-Generation/node_modules
 
 # logs
 /01 - Basics/pnpm-lock.yaml
 /01 - Basics/pnpm-debug.log*
 /02 - Compiler/pnpm-lock.yaml
 /02 - Compiler/pnpm-debug.log*
+/03 - Next-Generation/pnpm-lock.yaml

@@ -1,6 +1,7 @@
-var userInput;
-var userName;
-var userInputWithAny;
+"use strict";
+let userInput;
+let userName;
+let userInputWithAny;
 userInput = 5;
 userInput = 'Rafi';
 userInputWithAny = 'Any';
@@ -9,7 +10,7 @@ userName = userInputWithAny; // --> This will not throw an error, because userIn
 if (typeof userInput === 'string') {
     userName = userInput; // --> This will work, because we are checking the type of userInput before assigning it to userName.
 }
-var generateError = function (message, statusCode) {
-    throw { message: message, statusCode: statusCode };
+const generateError = (message, statusCode) => {
+    throw { message, statusCode };
 };
 generateError('An error occurred!', 500);
