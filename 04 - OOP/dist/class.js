@@ -1,11 +1,12 @@
 "use strict";
 class Departement {
-    constructor(name) {
-        this.employees = [];
+    constructor(id, name) {
+        this.id = id;
         this.name = name;
+        this.employees = [];
     }
     describe() {
-        console.log('Departement: ' + this.name);
+        console.log(`Departement (${this.id}): ${this.name}`);
     }
     addEmployee(employee) {
         this.employees.push(employee);
@@ -15,7 +16,7 @@ class Departement {
         console.log(this.employees);
     }
 }
-const DepartementIT = new Departement('Information Technology');
+const DepartementIT = new Departement('IT', 'Information Technology');
 DepartementIT.addEmployee('Rafi');
 DepartementIT.addEmployee('Johhny');
 DepartementIT.describe();
