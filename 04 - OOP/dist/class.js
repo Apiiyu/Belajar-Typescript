@@ -3,10 +3,14 @@ class Department {
     constructor(id, name) {
         this.id = id;
         this.name = name;
+        this.president = 'Rafi';
         this.employees = [];
     }
     describe() {
         console.log(`Departement (${this.id}): ${this.name}`);
+    }
+    addPresident(president) {
+        this.president = president;
     }
     addEmployee(employee) {
         this.employees.push(employee);
@@ -15,6 +19,9 @@ class Department {
         console.log(this.employees.length);
         console.log(this.employees);
     }
+    printDepartmentInformation() {
+        console.log(this.president);
+    }
 }
 class ITDepartment extends Department {
     constructor(id, leader, room, techStack = []) {
@@ -22,6 +29,11 @@ class ITDepartment extends Department {
         this.leader = leader;
         this.techStack = techStack;
         this.room = room;
+    }
+    addEmployee(employee) {
+        if (employee === 'Rafi')
+            return;
+        this.employees.push(employee);
     }
     addTechStack(tech) {
         this.techStack.push(tech);
