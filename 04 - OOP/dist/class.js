@@ -1,5 +1,5 @@
 "use strict";
-class Departement {
+class Department {
     constructor(id, name) {
         this.id = id;
         this.name = name;
@@ -16,9 +16,26 @@ class Departement {
         console.log(this.employees);
     }
 }
-const DepartementIT = new Departement('IT', 'Information Technology');
-DepartementIT.addEmployee('Rafi');
-DepartementIT.addEmployee('Johhny');
-DepartementIT.describe();
-DepartementIT.printEmployeeInformation();
+class ITDepartment extends Department {
+    constructor(id, leader, room, techStack = []) {
+        super(id, 'Information Technology');
+        this.leader = leader;
+        this.techStack = techStack;
+        this.room = room;
+    }
+    addTechStack(tech) {
+        this.techStack.push(tech);
+    }
+    printTechStack() {
+        console.log(this.techStack);
+    }
+}
+const IT = new ITDepartment('IT', 'Mark', 'Room 1');
+IT.addEmployee('Rafi');
+IT.addEmployee('Johhny');
+IT.addTechStack('Javascript');
+IT.addTechStack('Typescript');
+IT.describe();
+IT.printEmployeeInformation();
+IT.printTechStack();
 //# sourceMappingURL=class.js.map
