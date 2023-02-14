@@ -38,6 +38,16 @@ class ITDepartment extends Department { // In this case, we try to use inheritan
     this.room = room;
   }
 
+  get listTechnologyStack() { // As we know in Javascript/Typescript we also can use getter and setter. Getter is used to get the value of the property, Usually we use getter to get the value of the private property or usually we use getter because we want to do something before we return the value of the property. 
+    if (this.techStack.length === 0) throw new Error('Tech stack is empty');
+    return this.techStack[0];
+  }
+
+  set listTechnologyStack(tech: string) { // And then this is setter. Setter is used to set the value of the property. Usually we use setter to set the value of the private property or usually we use setter because we want to do something before we set the value of the property.
+    if (!tech) throw new Error('Please enter a valid tech stack');
+    this.techStack.push(tech);
+  }
+
   addEmployee(employee: string): void { // We also can override the method from the parent class. In this case, we override the method addEmployee from the class Departement. In this case, we can't add employee with name Rafi in the class ITDepartement.
     if (employee === 'Rafi') return;
     this.employees.push(employee);
@@ -45,6 +55,7 @@ class ITDepartment extends Department { // In this case, we try to use inheritan
 
   addTechStack(tech: string) {
     this.techStack.push(tech);
+    this.listTechnologyStack = tech;
   }
 
   printTechStack() {
@@ -55,8 +66,11 @@ class ITDepartment extends Department { // In this case, we try to use inheritan
 const IT = new ITDepartment('IT', 'Mark', 'Room 1');
 IT.addEmployee('Rafi');
 IT.addEmployee('Johhny');
+
 IT.addTechStack('Javascript');
 IT.addTechStack('Typescript');
+IT.listTechnologyStack = 'React';
+
 IT.describe();
 IT.printEmployeeInformation();
 IT.printTechStack();

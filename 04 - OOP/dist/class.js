@@ -30,6 +30,16 @@ class ITDepartment extends Department {
         this.techStack = techStack;
         this.room = room;
     }
+    get listTechnologyStack() {
+        if (this.techStack.length === 0)
+            throw new Error('Tech stack is empty');
+        return this.techStack[0];
+    }
+    set listTechnologyStack(tech) {
+        if (!tech)
+            throw new Error('Please enter a valid tech stack');
+        this.techStack.push(tech);
+    }
     addEmployee(employee) {
         if (employee === 'Rafi')
             return;
@@ -37,6 +47,7 @@ class ITDepartment extends Department {
     }
     addTechStack(tech) {
         this.techStack.push(tech);
+        this.listTechnologyStack = tech;
     }
     printTechStack() {
         console.log(this.techStack);
@@ -47,6 +58,7 @@ IT.addEmployee('Rafi');
 IT.addEmployee('Johhny');
 IT.addTechStack('Javascript');
 IT.addTechStack('Typescript');
+IT.listTechnologyStack = 'React';
 IT.describe();
 IT.printEmployeeInformation();
 IT.printTechStack();
