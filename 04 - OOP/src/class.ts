@@ -1,11 +1,11 @@
-class Department {
+abstract class Department {
   // private id: string;
   // private name: string;
   static fiscalYear: number = 2020; // We know static keyword is also can be used in property of class
-  private president:string = 'Rafi';  // As we know, in Typescript we also can use access modifiers like in Java. In this case, we use private access modifier, so we can't access the property employees from outside the class. But I remember you again is working only with Typescript. In Javascript they are not working and then also know just public access modifier.
+  // private president:string = 'Rafi';  // As we know, in Typescript we also can use access modifiers like in Java. In this case, we use private access modifier, so we can't access the property employees from outside the class. But I remember you again is working only with Typescript. In Javascript they are not working and then also know just public access modifier.
   protected employees: string[] = []; // Besides private access modifier, we also can use protected access modifier. You should know protected is not same with private. The property where it has private access modifier, It also can be modified/change in the same class, either we use Inheritance or not. But the property where it has protected access modifier, It also can be modified/change in the same class, or it can be modified/change in the child class. So, we can use protected access modifier if we want to use Inheritance.
 
-  constructor(private readonly id: string, public name: string) {
+  constructor(private readonly id: string, protected president: string, public name: string) {
     // In this case, we try to use shorthand Initialization. In this case, we don't need to declare the property id and name, and then assign the value of the parameter id and name to the property id and name. We can use shorthand Initialization, and we can declare the property id and name in the constructor parameter (Don't forget to define access modifiers xD). So, we don't need to declare the property id and name, and then assign the value of the parameter id and name to the property id and name. We can use shorthand Initialization, and we can declare the property id and name in the constructor parameter. Besides that, we also can use readonly access modifier in the constructor parameter. In this case, we won't change the value of the property id from outside the class. But I remember you again is working only with Typescript.
   }
 
@@ -14,9 +14,7 @@ class Department {
     console.log(`Departement (${this.id}): ${this.name}`);
   }
 
-  addPresident(president: string) {
-    this.president = president;
-  }
+  abstract showThePresident(this: Department): void; // As we know, in Typescript we also can use abstract keyword. As we know we can use abstract keywords for force the methods however it should be defined in the child class. But you should know, if we want to use abstract method, we should use abstract keyword in the class. And then we can use abstract keyword in the method. In this case, we use abstract keyword in the method showThePresident. So, we should define the method showThePresident in the child class. If we don't define the method showThePresident in the child class, we will get error.
 
   addEmployee(employee: string) {
     this.employees.push(employee);
@@ -39,7 +37,7 @@ class Department {
 class ITDepartment extends Department { // In this case, we try to use inheritance. In this case, we try to create a new class ITDepartement, and we want to use the property and method from the class Departement. So, we can use extends keyword to use the property and method from the class Departement. In this case, we can use the property and method from the class Departement in the class ITDepartement.
   public room: string;
   constructor(id: string, public leader: string, room: string, private techStack: string[] = []) {
-    super(id, 'Information Technology'); // We should know about super keyword. In this case, we use super keyword to call the constructor of the parent class. In this case, we use super keyword to call the constructor of the class Departement. So, we can use the property id and name from the class Departement in the class ITDepartement. And if we want to use this keyword we should call the constructor of the parent class first.
+    super(id, leader, 'Information Technology'); // We should know about super keyword. In this case, we use super keyword to call the constructor of the parent class. In this case, we use super keyword to call the constructor of the class Departement. So, we can use the property id and name from the class Departement in the class ITDepartement. And if we want to use this keyword we should call the constructor of the parent class first.
     this.room = room;
   }
 
@@ -56,6 +54,10 @@ class ITDepartment extends Department { // In this case, we try to use inheritan
   addEmployee(employee: string): void { // We also can override the method from the parent class. In this case, we override the method addEmployee from the class Departement. In this case, we can't add employee with name Rafi in the class ITDepartement.
     if (employee === 'Rafi') return;
     this.employees.push(employee);
+  }
+
+  showThePresident(this: ITDepartment) {
+    console.log(this.president);
   }
 
   addTechStack(tech: string) {

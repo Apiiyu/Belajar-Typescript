@@ -1,16 +1,13 @@
 "use strict";
 class Department {
-    constructor(id, name) {
+    constructor(id, president, name) {
         this.id = id;
+        this.president = president;
         this.name = name;
-        this.president = 'Rafi';
         this.employees = [];
     }
     describe() {
         console.log(`Departement (${this.id}): ${this.name}`);
-    }
-    addPresident(president) {
-        this.president = president;
     }
     addEmployee(employee) {
         this.employees.push(employee);
@@ -29,7 +26,7 @@ class Department {
 Department.fiscalYear = 2020;
 class ITDepartment extends Department {
     constructor(id, leader, room, techStack = []) {
-        super(id, 'Information Technology');
+        super(id, leader, 'Information Technology');
         this.leader = leader;
         this.techStack = techStack;
         this.room = room;
@@ -48,6 +45,9 @@ class ITDepartment extends Department {
         if (employee === 'Rafi')
             return;
         this.employees.push(employee);
+    }
+    showThePresident() {
+        console.log(this.president);
     }
     addTechStack(tech) {
         this.techStack.push(tech);
