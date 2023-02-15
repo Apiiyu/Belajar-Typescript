@@ -15,6 +15,9 @@ class Department {
     addEmployee(employee) {
         this.employees.push(employee);
     }
+    static createEmployee(name) {
+        return { name };
+    }
     printEmployeeInformation() {
         console.log(this.employees.length);
         console.log(this.employees);
@@ -23,6 +26,7 @@ class Department {
         console.log(this.president);
     }
 }
+Department.fiscalYear = 2020;
 class ITDepartment extends Department {
     constructor(id, leader, room, techStack = []) {
         super(id, 'Information Technology');
@@ -56,6 +60,9 @@ class ITDepartment extends Department {
 const IT = new ITDepartment('IT', 'Mark', 'Room 1');
 IT.addEmployee('Rafi');
 IT.addEmployee('Johhny');
+const newEmployee = Department.createEmployee('Rafi');
+console.log(newEmployee);
+console.log(Department.fiscalYear);
 IT.addTechStack('Javascript');
 IT.addTechStack('Typescript');
 IT.listTechnologyStack = 'React';

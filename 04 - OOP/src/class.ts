@@ -1,6 +1,7 @@
 class Department {
   // private id: string;
   // private name: string;
+  static fiscalYear: number = 2020; // We know static keyword is also can be used in property of class
   private president:string = 'Rafi';  // As we know, in Typescript we also can use access modifiers like in Java. In this case, we use private access modifier, so we can't access the property employees from outside the class. But I remember you again is working only with Typescript. In Javascript they are not working and then also know just public access modifier.
   protected employees: string[] = []; // Besides private access modifier, we also can use protected access modifier. You should know protected is not same with private. The property where it has private access modifier, It also can be modified/change in the same class, either we use Inheritance or not. But the property where it has protected access modifier, It also can be modified/change in the same class, or it can be modified/change in the child class. So, we can use protected access modifier if we want to use Inheritance.
 
@@ -20,6 +21,10 @@ class Department {
   addEmployee(employee: string) {
     this.employees.push(employee);
   }
+
+  static createEmployee(name: string) {
+    return { name };
+  } // As we know, in Javascript/Typescript we also can use static keyword. We use static keyword to create static method. As we know, the static method is useful for utility function. 
 
   printEmployeeInformation() {
     console.log(this.employees.length);
@@ -66,6 +71,10 @@ class ITDepartment extends Department { // In this case, we try to use inheritan
 const IT = new ITDepartment('IT', 'Mark', 'Room 1');
 IT.addEmployee('Rafi');
 IT.addEmployee('Johhny');
+
+const newEmployee = Department.createEmployee('Rafi');
+console.log(newEmployee);
+console.log(Department.fiscalYear);
 
 IT.addTechStack('Javascript');
 IT.addTechStack('Typescript');
